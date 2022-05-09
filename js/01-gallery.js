@@ -24,10 +24,11 @@ gallery.insertAdjacentHTML('beforeend', createImageGallery(galleryItems));
 
 gallery.addEventListener('click', onOpenLargeImg);
 function onOpenLargeImg(e) {
-    const isImgEl = e.target.classList.contains('gallery__image');
+    const isImgEl = e.target.tagName === 'IMG';
     if (!isImgEl) {
         return;
     }
+    console.log(e.target.tagName)
     e.preventDefault();
     const onKeyboardCloseImg = e => {
         if (e.code === 'Escape') {
